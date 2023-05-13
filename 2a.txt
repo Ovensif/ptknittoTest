@@ -1,0 +1,5 @@
+SELECT orderdetails.*, orders.customerNumber FROM orderdetails 
+JOIN orders ON orderdetails.orderNumber = orders.orderNumber
+WHERE productCode IN ( 
+	SELECT productCode FROM products WHERE productLine = 'Classic Cars'
+) AND quantityOrdered > 23
